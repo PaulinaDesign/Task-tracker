@@ -1,0 +1,12 @@
+.task {
+  background-color: aliceblue;
+  max-width: 30rem;
+
+  &--reminder {
+    background-color: gold;
+  }
+
+  &__delete-icon {
+    color: rgb(199, 8, 8);
+  }
+}
