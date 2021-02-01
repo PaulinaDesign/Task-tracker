@@ -1,4 +1,3 @@
-export { default as About } from "./About/About";
 export { default as AddTask } from "./AddTask/AddTask";
 export { default as Button } from "./Button/Button";
 export { default as Footer } from "./Footer/Footer";
