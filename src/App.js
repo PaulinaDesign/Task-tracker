@@ -12,7 +12,7 @@ function App() {
       <Header onAdd={() => setShowAddForm(!showAddForm)} showAddForm={showAddForm} />
       <Switch>
         <Route path="/about" exact component={About} />
-        <Route path="/" exact render={() => <Dashboard showAddForm={showAddForm} />} />
+        <Route path="/task-tracker" exact render={() => <Dashboard showAddForm={showAddForm} />} />
       </Switch>
       <Footer />
     </Router>
