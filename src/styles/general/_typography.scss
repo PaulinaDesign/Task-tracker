@@ -3,10 +3,13 @@ html {
 }
 
 body {
-  // color: $color-gray-1;
-  // font-family: $font-family-main;
-  // font-size: $font-size-body;
+  font-family: $font-family-main;
+  font-size: $font-size-body;
   font-style: normal;
   font-weight: normal;
-  // line-height: $line-height-biggest;
+  line-height: $line-height-biggest;
+}
+
+h1, .h1 {
+  font-size: $font-size-h1;
 }

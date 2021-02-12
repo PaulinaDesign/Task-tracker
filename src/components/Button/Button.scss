@@ -1,7 +1,33 @@
+@import "../../styles/base/base";
+
 .button {
-  background-color: green;
+  background-color: rgb(121, 17, 134);
+  border: none;
+  border-radius: 3px;
+  color: $color-white;
+  font-family: $font-family-main;
+  font-weight: 600;
+  min-width: 25rem;
+  padding: 0.8rem 2rem;
+  text-transform: uppercase;
+  transition: 0.18s ease-in;
 
   &--open {
-    background-color: gray;
+    background-color: rgb(75, 66, 73);
+  }
+
+  &:focus {
+    outline: 1px solid rgb(181, 4, 204);
+  }
+
+  &__icon {
+    color: $color-white;
+    font-size: $font-size-body;
+    margin: 0 1rem -0.3rem 0;
+    transition: 0.25s ease-in-out;
+    
+    &--open {
+      transform: rotate(135deg);
+    }
   }
 }

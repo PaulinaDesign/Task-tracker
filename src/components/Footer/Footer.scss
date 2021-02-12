@@ -1,7 +1,17 @@
+@import "../../styles/base/base";
+
 .footer {
-  background-color: gray;
+  background: $color-main-bg-50proc;
   bottom: 0;
+  color: $color-gray-light;
+  display: flex;
+  font-size: $font-size-smallest;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
   position: absolute;
-  text-align: center;
   width: 100%;
+
+  &__about-link {
+    color: $color-white;
+  }
 }

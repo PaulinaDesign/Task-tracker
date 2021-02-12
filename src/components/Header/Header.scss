@@ -1,0 +1,13 @@
+@import "../../styles/base/base";
+
+.header {
+  align-items: center;
+  background: $color-main-bg-50proc;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}

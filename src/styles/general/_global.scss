@@ -1,5 +1,7 @@
 html {
   box-sizing: border-box;
+  background: $gradient-main;
+  color: $color-white;
 }
 
 *,
@@ -9,6 +11,8 @@ html {
 }
 
 body {
+  margin: 0;
+
   * {
       margin: 0;
       -webkit-font-smoothing: antialiased;

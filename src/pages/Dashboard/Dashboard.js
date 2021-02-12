@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { AddTask, Tasks} from "../../components";
+import "./Dashboard.scss";
 
 const Dashboard = (props) => {
   const [tasks, setTasks] = useState([]);
@@ -76,7 +77,7 @@ const Dashboard = (props) => {
   };
 
   return (
-    <main>
+    <main className="dashboard">
       {props.showAddForm &&
         <AddTask onAdd={addTask} />
       }

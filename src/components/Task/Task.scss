@@ -1,12 +1,20 @@
 .task {
-  background-color: aliceblue;
-  max-width: 30rem;
+  background-color: rgba(66, 132, 190, 0.5);
+  margin-bottom: 0.5rem;
+  max-width: 40rem;
+  padding: 0.8rem 2rem;
 
   &--reminder {
-    background-color: gold;
+    background-color: rgba(17, 180, 245, 0.6);
   }
 
-  &__delete-icon {
-    color: rgb(199, 8, 8);
+  &__title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    color: rgb(20, 19, 70);
+    margin-left: 0.8rem;
   }
 }
