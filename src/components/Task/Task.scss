@@ -1,20 +1,48 @@
-.task {
-  background-color: rgba(66, 132, 190, 0.5);
-  margin-bottom: 0.5rem;
-  max-width: 40rem;
-  padding: 0.8rem 2rem;
+@import "../../styles/base/base";
 
-  &--reminder {
-    background-color: rgba(17, 180, 245, 0.6);
+.task {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 40px 1fr 20px;
+  min-height: 5rem;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid $color-gray-light-opacity-1;
   }
 
-  &__title {
-    display: flex;
-    justify-content: space-between;
+  &__content {
+    margin: 1rem 0;
+    word-wrap: break-word;
+    padding-left: 1rem;
+
+    &--reminder {
+      border-left: 4px solid $color-secondary;
+      
+    }
+  }
+
+  &__date {
+    color: $color-gray-light;
+    font-size: $font-size-small;
+    font-weight: lighter;
   }
 
   &__icon {
-    color: rgb(20, 19, 70);
-    margin-left: 0.8rem;
+    cursor: pointer;
+
+    &--complete {
+      &:hover {
+        color: $color-gray-light;
+      }
+    }
+
+    &--delete {
+      color: $color-gray-light;
+      justify-self: right;
+
+      &:hover {
+        color: $color-white;
+      }
+    }
   }
 }

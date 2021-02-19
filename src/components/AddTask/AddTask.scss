@@ -1,9 +1,104 @@
 @import "../../styles/base/base";
 
 .add-form {
+  $_this: &;
+
   background: $color-main-opacity-2;
   border-radius: $border-radius-container;
   box-shadow: $box-shadow-main;
   margin-bottom: $margin-bottom-container;
   padding: $padding-container;
+  max-height: 40rem;
+  overflow: hidden;
+  transition: 0.7s ease-in-out;
+
+  &--closed {
+    max-height: 0rem;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  &__control {
+    margin-bottom: 1rem;
+  }
+
+  &__label {
+    font-size: $font-size-small;
+    font-weight: lighter;
+  }
+
+  &__input {
+    background: $color-gray-dark-opacity-3;
+    border: 1px solid $color-main-opacity-1;
+    border-radius: 3px;
+    color: $color-white;
+    cursor: text;
+    font-weight: lighter;
+    padding: 0.5rem 1.2rem;
+    width: 100%;
+    outline: none;
+
+    &::placeholder {
+      color: $color-white;
+    }
+
+    &:hover {
+      background: $color-gray-dark-opacity-2;
+    }
+
+    &:focus {
+      border: 1px solid $color-white;
+    }
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.7;
+    filter: invert(1);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__checkbox {
+    cursor: pointer;
+  }
+
+  &__checkbox-input {
+    display: none;
+
+    &:hover + #{$_this}__checkbox-fakebox {
+      background-color: $color-gray-dark-opacity-2;
+    }
+
+    &:checked + #{$_this}__checkbox-fakebox {
+      background-color: $color-main;
+      color: $color-white;
+    }
+
+    &:disabled + #{$_this}__checkbox-fakebox {
+      background-color: $color-gray-light-opacity-1;
+      border-color: $color-gray-light;
+      cursor: default;
+    }
+  }
+
+  &__checkbox-fakebox {
+    background: $color-gray-dark-opacity-3;
+    border: 1px solid $color-main-opacity-1;
+    border-radius: 3px;
+    color: transparent;
+    display: inline-flex;
+    height: 1.7rem;
+    place-items: center;
+    width: 1.7rem;
+    margin-right: 0.7rem;
+    transform: translateY(0.25rem);
+
+    &:focus {
+      border: 1px solid $color-white;
+      outline: none;
+    }
+  }
 }

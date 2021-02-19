@@ -78,9 +78,11 @@ const Dashboard = (props) => {
 
   return (
     <main className="dashboard">
-      {props.showAddForm &&
+      {/* {props.showAddForm &&
         <AddTask onAdd={addTask} />
-      }
+      } */}
+      <AddTask showAddForm={props.showAddForm} onAdd={addTask} />
+
       {tasks.length > 0
         ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
         : "No tasks"

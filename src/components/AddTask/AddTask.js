@@ -1,5 +1,7 @@
 import { useState } from "react";
+import classNames from "classnames";
 import { Button } from "../../components";
+import { MdDone } from "react-icons/md";
 import "./AddTask.scss";
 
 const AddTask = (props) => {
@@ -11,7 +13,7 @@ const AddTask = (props) => {
     e.preventDefault();
 
     if(!name) {
-      alert("You forgot to add task name");
+      alert("You forgot to name your task");
       return;
     }
 
@@ -23,33 +25,54 @@ const AddTask = (props) => {
   };
 
   return (
-    <form className="add-form" onSubmit={onSubmit}>
+    <form
+      className={classNames(
+        "add-form",
+        { "add-form--closed": !props.showAddForm }
+      )}
+      onSubmit={onSubmit}
+    >
+      <h2 className="add-form__title">Add new task</h2>
       <div className="add-form__control">
-        <label>Task</label>
+        <label className="add-form__label">
+          Task name
+        </label>
         <input
+          className="add-form__input"
           type="text"
-          placeholder="Add task"
+          placeholder="Task name..."
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
       </div>
       <div className="add-form__control">
-        <label>Day & TIme</label>
+        <label className="add-form__label">
+          Due date
+        </label>
         <input
-          type="text"
-          placeholder="Add day & time"
+          className="add-form__input"
+          type="date"
+          placeholder="Add due date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />
       </div>
       <div className="add-form__control">
-        <label>Set reminder</label>
-        <input
-          type="checkbox"
-          checked={reminder}
-          value={reminder}
-          onChange={(e) => setReminder(e.currentTarget.checked)}
-        />
+        <label id="checkbox" className="add-form__checkbox">
+          <input
+            className="add-form__checkbox-input"
+            type="checkbox"
+            checked={reminder}
+            value={reminder}
+            onChange={(e) => setReminder(e.currentTarget.checked)}
+            disabled={date === ""}
+          />
+          <span className="add-form__checkbox-fakebox" tabIndex="0">
+            <MdDone className="add-form__fakebox-icon" />
+          </span>
+          <span className="add-form__label">Set Reminder</span>
+        </label>
       </div>
 
       <Button type="block">Save Task</Button>

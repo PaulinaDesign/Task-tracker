@@ -5,10 +5,10 @@
   bottom: 0;
   color: $color-gray-light;
   display: flex;
+  height: 3.5rem;
   font-size: $font-size-smallest;
   justify-content: space-between;
   padding: 1rem 1.5rem;
-  position: absolute;
   width: 100%;
 
   &__about-link {

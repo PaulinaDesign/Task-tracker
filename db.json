@@ -3,20 +3,44 @@
     {
       "id": 1,
       "name": "Dentist Appointment",
-      "date": "Feb 5th 14:30",
+      "date": "2021-02-25",
       "reminder": true
     },
     {
       "id": 2,
       "name": "Meeting with Client",
-      "date": "Feb 6th 12:00",
+      "date": "2021-03-02",
       "reminder": false
     },
     {
       "id": 3,
       "name": "Shopping",
-      "date": "Feb 5th 18:00",
+      "date": "2021-03-02",
       "reminder": true
+    },
+    {
+      "name": "Go to the Vet",
+      "date": "2021-03-15",
+      "reminder": false,
+      "id": 7
+    },
+    {
+      "name": "Water the flowers",
+      "date": "",
+      "reminder": false,
+      "id": 8
+    },
+    {
+      "name": "Find missing spoon",
+      "date": "",
+      "reminder": false,
+      "id": 9
+    },
+    {
+      "name": "Take the dog for a walk",
+      "date": "",
+      "reminder": false,
+      "id": 10
     }
   ]
 }
