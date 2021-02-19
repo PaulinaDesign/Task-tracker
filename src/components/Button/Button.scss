@@ -59,6 +59,22 @@
     }
   }
 
+  &--icon {
+    color: transparent;
+    border: 1px solid $color-white;
+    border-radius: $border-radius-button;
+    font-size: $font-size-body;
+    padding: 0.3rem 0.3rem 0.1rem;
+
+    &:hover {
+      color: $color-white;
+    }
+
+    &:focus {
+      border: 1px solid $color-main;
+    }
+  }
+
   &--open {
     color: $color-gray-light;
 

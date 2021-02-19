@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { MdDone, MdClear } from "react-icons/md";
+import { Button } from "../../components";
 import "./Task.scss";
 
 const Task = (props) => {
@@ -8,7 +9,9 @@ const Task = (props) => {
       className="task"
       onDoubleClick={() => props.onToggle(props.task.id)}
     >
-      <MdDone className="task__icon task__icon--complete" onClick={() => props.onDelete(props.task.id)} />
+      <Button type="icon" onClick={() => props.onComplete(props.task.id)}>
+        <MdDone className="task__icon" />
+      </Button>
       <div className={classNames(
         "task__content",
         { "task__content--reminder": props.task.reminder }

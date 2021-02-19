@@ -3,7 +3,8 @@
 .task {
   align-items: center;
   display: grid;
-  grid-template-columns: 40px 1fr 20px;
+  gap: 1.5rem;
+  grid-template-columns: 2.7rem 1fr 2rem;
   min-height: 5rem;
 
   &:not(:last-of-type) {
@@ -25,16 +26,11 @@
     color: $color-gray-light;
     font-size: $font-size-small;
     font-weight: lighter;
+    letter-spacing: 1px;
   }
 
   &__icon {
     cursor: pointer;
-
-    &--complete {
-      &:hover {
-        color: $color-gray-light;
-      }
-    }
 
     &--delete {
       color: $color-gray-light;

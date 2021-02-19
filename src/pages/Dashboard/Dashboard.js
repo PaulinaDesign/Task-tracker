@@ -45,6 +45,27 @@ const Dashboard = (props) => {
     setTasks([...tasks, data]);
   };
 
+  // Complete Task
+  const completeTask = async (id) => {
+    const taskToComplete = await fetchTask(id);
+
+    await fetch(`http://localhost:3008/tasks/${id}`, {
+      method: "DELETE"
+    })
+
+    const res = await fetch("http://localhost:3008/completed", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(taskToComplete)
+    })
+
+    const data = await res.json();
+
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
   // Delete Task
   const deleteTask = async (id) => {
     await fetch(`http://localhost:3008/tasks/${id}`, {
@@ -72,19 +93,14 @@ const Dashboard = (props) => {
     setTasks(tasks.map((task) => 
       task.id === id ? { ...task, reminder: data.reminder } : task)
     );
-
-    console.log(updTask);
   };
 
   return (
     <main className="dashboard">
-      {/* {props.showAddForm &&
-        <AddTask onAdd={addTask} />
-      } */}
       <AddTask showAddForm={props.showAddForm} onAdd={addTask} />
 
       {tasks.length > 0
-        ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
+        ? <Tasks tasks={tasks} onComplete={completeTask} onDelete={deleteTask} onToggle={toggleReminder} />
         : "No tasks"
       }
     </main>
