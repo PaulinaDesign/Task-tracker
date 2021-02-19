@@ -59,6 +59,15 @@
     }
   }
 
+  &--blue {
+    color: $color-main;
+    background-color: $color-main-opacity-2;
+
+    &:hover {
+      background-color: $color-gray-dark-opacity-3;
+    }
+  }
+
   &--icon {
     color: transparent;
     border: 1px solid $color-white;

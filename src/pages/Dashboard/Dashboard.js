@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { AddTask, Tasks} from "../../components";
+import { AddTask, Tasks, CompletedTasks } from "../../components";
 import "./Dashboard.scss";
 
 const Dashboard = (props) => {
@@ -103,6 +103,7 @@ const Dashboard = (props) => {
         ? <Tasks tasks={tasks} onComplete={completeTask} onDelete={deleteTask} onToggle={toggleReminder} />
         : "No tasks"
       }
+      <CompletedTasks />
     </main>
   )
 }

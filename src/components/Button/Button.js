@@ -8,6 +8,7 @@ const Button = (props) => {
       className={classNames(
         "button",
         { [`button--${props?.type}`]: props?.type },
+        { [`button--${props?.color}`]: props?.color },
         { "button--open": props?.isOpen }
       )}
       onClick={props.onClick}>
@@ -19,6 +20,7 @@ const Button = (props) => {
 Button.propTypes = {
   onClick: PropTypes.func,
   type: PropTypes.string,
+  color: PropTypes.string,
   isOpen: PropTypes.bool,
 };
 

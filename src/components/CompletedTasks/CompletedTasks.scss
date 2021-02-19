@@ -1,0 +1,20 @@
+@import "../../styles/base/base";
+
+.open-complete-button {
+  font-size: $font-size-body;
+  margin-bottom: -0.3rem;
+  margin-right: 0.5rem;
+  transition: 0.25s ease-in-out;
+
+  &--open {
+    margin-bottom: -0.24rem;
+    transform: rotate(180deg);
+  }
+}
+
+.completed-tasks {
+  background: $color-gray-dark-opacity-3;
+  border-radius: $border-radius-container;
+  margin: 1rem 0 5rem;
+  padding: $padding-container;
+}
