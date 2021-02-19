@@ -1,29 +1,97 @@
 @import "../../styles/base/base";
 
 .button {
-  background-color: rgb(121, 17, 134);
-  border: none;
-  border-radius: 3px;
-  color: $color-white;
-  font-family: $font-family-main;
-  font-weight: 600;
-  min-width: 25rem;
-  padding: 0.8rem 2rem;
-  text-transform: uppercase;
-  transition: 0.18s ease-in;
+  $_this: &;
 
-  &--open {
-    background-color: rgb(75, 66, 73);
-  }
+  background-color: transparent;
+  border: none;
+  color: $color-main;
+  cursor: pointer;
+  font-family: $font-family-main;
+  font-size: 1.2rem;
+  font-weight: normal;
+  letter-spacing: 0.2px;
+  padding: 0;
 
   &:focus {
-    outline: 1px solid rgb(181, 4, 204);
+    outline: none;
+  }
+
+  &--text {
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: flex;
+    place-items: center;
+
+    &:hover {
+      color: $color-main-hover;
+  
+      #{$_this}__icon-container {
+        background-color: $color-main-hover;
+      }
+    }
+
+    &:focus {
+      #{$_this}__icon-container {
+        border: 1px solid $color-white;
+      }
+    }
+  
+    &:active {
+      color: $color-main-active;
+    }
+  }
+
+  &--block {
+    color: $color-white;
+    background-color: $color-gray-dark-opacity-1;
+    border: 1px solid transparent;
+    border-radius: $border-radius-button;
+    padding: 0.6rem 2rem;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: $color-gray-dark;
+    }
+
+    &:focus {
+      border: 1px solid $color-white;
+    }
+  }
+
+  &--open {
+    color: $color-gray-light;
+
+    #{$_this}__icon-container {
+      background-color: $color-gray-light;
+    }
+
+    &:hover {
+      color: $color-gray-light;
+      opacity: 0.8;
+
+      #{$_this}__icon-container {
+        background-color: $color-gray-light;
+        opacity: 0.8;
+      }
+    }
+  
+  }
+  
+  &__icon-container {
+    background-color: $color-main;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-right: 0.7rem;
+    height: 3rem;
+    width: 3rem;
   }
 
   &__icon {
     color: $color-white;
-    font-size: $font-size-body;
-    margin: 0 1rem -0.3rem 0;
+    font-size: $font-size-smallest;
+    stroke-width: 2px;
     transition: 0.25s ease-in-out;
     
     &--open {

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Button } from "../../components";
+import "./AddTask.scss";
 
 const AddTask = (props) => {
   const [name, setName] = useState("");
@@ -50,7 +52,7 @@ const AddTask = (props) => {
         />
       </div>
 
-      <input type="submit" value="Save Task" />
+      <Button type="block">Save Task</Button>
     </form>
   )
 }

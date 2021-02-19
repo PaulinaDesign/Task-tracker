@@ -1,7 +1,15 @@
 $color-white: #efefed;
-$color-gray-light: rgb(116, 123, 150);
-$color-gray: rgb(83,88,108);
-$color-main-bg: rgb(26, 25, 39);
-$color-main-bg-50proc: rgba(26, 25, 39, 0.5);
+$color-gray-light: #8A8DA0;
+$color-gray-dark: #1A1927;
+$color-gray-dark-opacity-1: rgba(26, 25, 39, 0.7);
+$color-gray-dark-opacity-2: rgba(26, 25, 39, 0.5);
+
+$color-main: #0BC3D3;
+$color-main-opacity-1: rgba(11, 195, 211, 0.7);
+$color-main-opacity-2: rgba(11, 195, 211, 0.15);
+$color-main-hover: #00b5c5;
+$color-main-active: rgb(11, 181, 211);
+
+$color-secondary: #F29842;
 
 $gradient-main: linear-gradient(90deg, rgba(83,88,108,1) 0%, rgba(39,41,56,1) 100%);

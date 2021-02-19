@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import classNames from "classnames";
 import { useLocation } from "react-router-dom";
 import { MdClear } from "react-icons/md";
 import { Button } from "../../components";
@@ -11,9 +12,22 @@ const Header = (props) => {
     <header className="header">
       <h1 className="header__title">{props.title}</h1>
       {location.pathname === "/task-tracker" &&
-        <Button className="header__button" onClick={props.onAdd} isOpen={props.showAddForm}>
-          <MdClear className={`button__icon ${!props.showAddForm ? "button__icon--open" : ""}`} />
-          {props.showAddForm ? "Close" : "Add New Task"}
+        <Button
+          className="header__button"
+          onClick={props.onAdd}
+          type="text"
+          isOpen={props.showAddForm}
+        >
+          <div className={classNames(
+              "button__icon-container",
+              { "button__icon-container--open" : props.showAddForm }
+            )}>
+            <MdClear className={classNames(
+              "button__icon",
+              { "button__icon--open" : !props.showAddForm }
+            )}/>
+          </div>
+          {props.showAddForm ? "Close" : "Add Task"}
         </Button>
       }
     </header>

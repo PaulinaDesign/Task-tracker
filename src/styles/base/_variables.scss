@@ -30,12 +30,15 @@ $default-spacing-small: 1.6rem;
 $default-spacing-medium: 2.4rem;
 $default-spacing-large: 4rem;
 
+//COMMON MARGINS
+$margin-bottom-container: 2rem;
+
+//COMMON PADDINGS
+$padding-container: 2.5rem 3rem;
+
 //COMMON BOX SHADOW VALUES
-$box-shadow-small: 0 0 0.4rem rgba(0, 0, 0, 0.2);
-$box-shadow-medium: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.25);
-$box-shadow-big: 0 0.8rem 2.3rem rgba(0, 0, 0, 0.25);
-$box-shadow-big-hover: 0 0.8rem 2.3rem rgba(0, 0, 0, 0.5);
+$box-shadow-main: 1px 2px 20px rgba(0, 0, 0, 0.2);
 
 //COMMON BORDER RADIUSES
-$card-border-radius: 0.8rem;
-$input-border-radius: 0.5rem;
+$border-radius-container: 0.3rem;
+$border-radius-button: 5rem;
