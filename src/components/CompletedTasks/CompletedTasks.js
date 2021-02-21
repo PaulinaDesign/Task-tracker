@@ -38,7 +38,10 @@ const CompletedTasks = (props) => {
         Completed&nbsp;&nbsp;
         { completedTasks.length > 0 && completedTasks.length }
       </Button>
-      <div className="completed-tasks">
+      <div className={classNames(
+        "completed-tasks",
+        { "completed-tasks--closed": !showTasks }
+      )}>
         { showTasks && completedTasks.length > 0 &&
           completedTasks.map((task) => (
             <Task
