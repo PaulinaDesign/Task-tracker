@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import classNames from "classnames";
-import { Button, Task } from "../../components";
+import { Button, CompletedTask } from "../../components";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import "./CompletedTasks.scss";
 
@@ -41,7 +41,7 @@ const CompletedTasks = (props) => {
       <div className="completed-tasks">
         { showTasks && completedTasks.length > 0 &&
           completedTasks.map((task) => (
-            <Task
+            <CompletedTask
               key={task.id}
               task={task}
             />
