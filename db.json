@@ -1,60 +1,67 @@
 {
   "tasks": [
     {
-      "id": 1,
+      "id": "klz0g3dm",
       "name": "Dentist Appointment",
       "date": "2021-02-25",
-      "reminder": true
+      "reminder": true,
+      "completed": false
     },
     {
       "name": "Meeting with Client",
       "date": "2021-03-02",
-      "reminder": false,
-      "id": 2
+      "reminder": true,
+      "id": "klz1g3dm",
+      "completed": false
     },
     {
       "name": "Shopping",
       "date": "2021-03-02",
       "reminder": true,
-      "id": 3
+      "id": "klz2g3dm",
+      "completed": false
     },
     {
       "name": "Go to the Vet",
       "date": "2021-03-15",
-      "reminder": false,
-      "id": 7
+      "reminder": true,
+      "id": "klz3g3dm",
+      "completed": false
     },
     {
       "name": "Water the flowers",
       "date": "",
       "reminder": false,
-      "id": 8
+      "id": "klz4g3dm",
+      "completed": false
     },
     {
       "name": "Find missing spoon",
       "date": "",
       "reminder": false,
-      "id": 9
-    }
-  ],
-  "completed": [
-    {
-      "id": 4,
-      "name": "Go to the Doctor",
-      "date": "2021-02-25",
-      "reminder": true
+      "id": "klz5g0dm",
+      "completed": true
     },
     {
-      "id": 5,
+      "id": "klz5g1dm",
+      "name": "Go to the Doctor",
+      "date": "2021-02-25",
+      "reminder": true,
+      "completed": true
+    },
+    {
+      "id": "klz5g2dm",
       "name": "Meeting with Friends",
       "date": "2021-03-02",
-      "reminder": false
+      "reminder": false,
+      "completed": true
     },
     {
       "name": "Take the dog for a walk",
       "date": "",
       "reminder": false,
-      "id": 10
+      "id": "klz5g3dm",
+      "completed": true
     }
   ]
 }

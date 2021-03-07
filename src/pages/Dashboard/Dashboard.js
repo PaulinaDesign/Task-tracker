@@ -1,18 +1,27 @@
 import { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 import { AddTask, Tasks, CompletedTasks } from "../../components";
 import "./Dashboard.scss";
 
 const Dashboard = (props) => {
-  const [tasks, setTasks] = useState([]);
+  const [activeTasks, setActiveTasks] = useState([]);
+  const [completedTasks, setCompletedTasks] = useState([]);
 
   useEffect(() => {
     const getTasks = async () => {
       const tasksFromServer = await fetchTasks();
-      setTasks(tasksFromServer);
+
+      setActiveTasks(tasksFromServer.filter((task) => {
+        return task.completed === false;
+      }));
+
+      setCompletedTasks(tasksFromServer.filter((task) => {
+        return task.completed === true;
+      }));
     };
 
     getTasks();
-  }, [])
+  }, []);
 
   // Fetch All Tasks
   const fetchTasks = async () => {
@@ -22,7 +31,7 @@ const Dashboard = (props) => {
     return data;
   };
 
-  // Fetch Task
+  // Fetch Task by ID
   const fetchTask = async (id) => {
     const res = await fetch(`http://localhost:3008/tasks/${id}`);
     const data = await res.json();
@@ -42,28 +51,34 @@ const Dashboard = (props) => {
 
     const data = await res.json();
 
-    setTasks([...tasks, data]);
+    setActiveTasks([...activeTasks, data]);
   };
 
   // Complete Task
   const completeTask = async (id) => {
     const taskToComplete = await fetchTask(id);
+    const taskWithCompletedStatus = {
+      ...taskToComplete,
+      completed: !taskToComplete.completed,
+    };
 
-    await fetch(`http://localhost:3008/tasks/${id}`, {
-      method: "DELETE"
-    })
-
-    const res = await fetch("http://localhost:3008/completed", {
-      method: "POST",
+    const res = await fetch(`http://localhost:3008/tasks/${id}`, {
+      method: "PUT",
       headers: {
         "Content-type": "application/json"
       },
-      body: JSON.stringify(taskToComplete)
+      body: JSON.stringify(taskWithCompletedStatus)
     })
 
     const data = await res.json();
 
-    setTasks(tasks.filter((task) => task.id !== id));
+    if (taskToComplete.completed === false) {
+      setActiveTasks(activeTasks.filter((task) => task.id !== id));
+      setCompletedTasks([...completedTasks, taskToComplete]);
+    } else {
+      setCompletedTasks(completedTasks.filter((task) => task.id !== id));
+      setActiveTasks([...activeTasks, taskToComplete]);
+    }
   };
 
   // Delete Task
@@ -72,40 +87,63 @@ const Dashboard = (props) => {
       method: "DELETE"
     })
 
-    setTasks(tasks.filter((task) => task.id !== id));
+    setActiveTasks(activeTasks.filter((task) => task.id !== id));
+    setCompletedTasks(completedTasks.filter((task) => task.id !== id));
   };
 
   // Toggle Reminder
   const toggleReminder = async (id) => {
     const taskToToggle = await fetchTask(id);
-    const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder };
 
-    const res = await fetch(`http://localhost:3008/tasks/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-type": "application/json"
-      },
-      body: JSON.stringify(updTask)
-    })
+    if (taskToToggle.date !== "") {
+      const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder };
 
-    const data = await res.json();
+      const res = await fetch(`http://localhost:3008/tasks/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify(updTask)
+      })
 
-    setTasks(tasks.map((task) => 
-      task.id === id ? { ...task, reminder: data.reminder } : task)
-    );
+      const data = await res.json();
+
+
+      taskToToggle.completed === false
+        ? setActiveTasks(activeTasks.map((task) => 
+            task.id === id ? { ...task, reminder: data.reminder } : task)
+          )
+        : setCompletedTasks(completedTasks.map((task) => 
+            task.id === id ? { ...task, reminder: data.reminder } : task)
+          );
+    }
+    return;
   };
 
   return (
     <main className="dashboard">
       <AddTask showAddForm={props.showAddForm} onAdd={addTask} />
 
-      {tasks.length > 0
-        ? <Tasks tasks={tasks} onComplete={completeTask} onDelete={deleteTask} onToggle={toggleReminder} />
+      {activeTasks?.length > 0
+        ? <Tasks
+            tasks={activeTasks}
+            onComplete={completeTask}
+            onDelete={deleteTask}
+            onToggle={toggleReminder}
+          />
         : "No tasks"
       }
-      <CompletedTasks />
+      <CompletedTasks
+        tasks={completedTasks}
+        onComplete={completeTask}
+        onDelete={deleteTask}
+      />
     </main>
   )
 }
+
+Dashboard.protoTypes = {
+  showAddForm: PropTypes.bool,
+};
 
 export default Dashboard;

@@ -42,6 +42,6 @@ Header.protoTypes = {
   title: PropTypes.string,
   onAdd: PropTypes.func,
   showAddForm: PropTypes.bool,
-}
+};
 
 export default Header;

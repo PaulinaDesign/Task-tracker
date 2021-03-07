@@ -10,6 +10,7 @@ const Tasks = (props) => {
         <Task
           key={task.id}
           task={task}
+          isCompleted={false}
           onComplete={props.onComplete}
           onDelete={props.onDelete}
           onToggle={props.onToggle}
@@ -20,9 +21,10 @@ const Tasks = (props) => {
 }
 
 Tasks.propTypes = {
-  onComplete: PropTypes.func,
-  onDelete: PropTypes.func,
-  onToggle: PropTypes.func,
+  tasks: PropTypes.array.isRequired,
+  onComplete: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onToggle: PropTypes.func.isRequired,
 };
 
 export default Tasks;

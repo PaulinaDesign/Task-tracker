@@ -22,6 +22,12 @@
     }
   }
 
+  &__title {
+    &--completed {
+      text-decoration: line-through;
+    }
+  }
+
   &__date {
     color: $color-gray-light;
     font-size: $font-size-small;

@@ -1,5 +1,7 @@
 import { useState } from "react";
+import PropTypes from 'prop-types';
 import classNames from "classnames";
+import uniqid from "uniqid";
 import { Button } from "../../components";
 import { MdDone } from "react-icons/md";
 import "./AddTask.scss";
@@ -9,6 +11,8 @@ const AddTask = (props) => {
   const [date, setDate] = useState("");
   const [reminder, setReminder] = useState(false);
 
+  const newId = uniqid();
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -17,7 +21,13 @@ const AddTask = (props) => {
       return;
     }
 
-    props.onAdd({ name, date, reminder });
+    props.onAdd({
+      id: newId,
+      name,
+      date,
+      reminder,
+      completed: false,
+    });
 
     setName("");
     setDate("");
@@ -79,5 +89,10 @@ const AddTask = (props) => {
     </form>
   )
 }
+
+AddTask.protoTypes = {
+  showAddForm: PropTypes.bool,
+  onAdd: PropTypes.func,
+};
 
 export default AddTask;
