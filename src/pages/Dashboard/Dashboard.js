@@ -122,17 +122,19 @@ const Dashboard = (props) => {
 
   return (
     <main className="dashboard">
-      <AddTask showAddForm={props.showAddForm} onAdd={addTask} />
+      <div>
+        <AddTask showAddForm={props.showAddForm} onAdd={addTask} />
 
-      {activeTasks?.length > 0
-        ? <Tasks
-            tasks={activeTasks}
-            onComplete={completeTask}
-            onDelete={deleteTask}
-            onToggle={toggleReminder}
-          />
-        : "No tasks"
-      }
+        {activeTasks?.length > 0
+          ? <Tasks
+              tasks={activeTasks}
+              onComplete={completeTask}
+              onDelete={deleteTask}
+              onToggle={toggleReminder}
+            />
+          : "No tasks"
+        }
+      </div>
       <CompletedTasks
         tasks={completedTasks}
         onComplete={completeTask}

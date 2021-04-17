@@ -5,4 +5,13 @@
   padding: 1.5rem;
   width: 95%;
   min-height: calc(100vh - 8.4rem);
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: $tablet) {
+  .dashboard {
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 3rem;
+  }
 }

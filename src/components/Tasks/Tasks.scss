@@ -6,3 +6,9 @@
   margin-bottom: $margin-bottom-container;
   padding: $padding-container;
 }
+
+@media (min-width: $tablet) {
+  .tasks {
+    grid-column-start: 1 / 2;
+  }
+}

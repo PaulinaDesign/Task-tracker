@@ -18,6 +18,7 @@ const Button = (props) => {
 }
 
 Button.propTypes = {
+  children: PropTypes.node.isRequired,
   onClick: PropTypes.func,
   type: PropTypes.string,
   color: PropTypes.string,

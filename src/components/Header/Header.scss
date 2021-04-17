@@ -8,4 +8,15 @@
   padding: 1.5rem;
   text-align: center;
   width: 100%;
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: $min-tablet) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }

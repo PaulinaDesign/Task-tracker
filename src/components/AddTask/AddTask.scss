@@ -103,3 +103,9 @@
     }
   }
 }
+
+@media (min-width: $tablet) {
+  .add-form {
+    grid-column-start: 1 / 2;
+  }
+}

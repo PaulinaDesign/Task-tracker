@@ -22,3 +22,9 @@
     padding: 0;
   }
 }
+
+@media (min-width: $tablet) {
+  .open-complete-button, .completed-tasks {
+    grid-column-start: 2 / 3;
+  }
+}
