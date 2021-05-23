@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Footer, Header } from "./components";
 import About from "./pages/About/About";
@@ -12,7 +12,7 @@ function App() {
       <Header onAdd={() => setShowAddForm(!showAddForm)} showAddForm={showAddForm} />
       <Switch>
         <Route path="/about" exact component={About} />
-        <Route path="/task-tracker" exact render={() => <Dashboard showAddForm={showAddForm} />} />
+        <Route path="/" exact render={() => <Dashboard showAddForm={showAddForm} />} />
       </Switch>
       <Footer />
     </Router>

@@ -1,3 +1,4 @@
+import React from "react";
 import { useHistory } from "react-router-dom";
 import { Button } from "../../components";
 import "./About.scss";
@@ -6,7 +7,7 @@ const About = () => {
   const history = useHistory();
 
   const handleGoBackButton = () => {
-    history.push("/task-tracker");
+    history.push("/");
   };
 
   return (
@@ -44,7 +45,11 @@ const About = () => {
           Delete any task
         </h3>
         <p className="about-container__section-body">
-          Press <strong>X</strong> to delete a task.
+          Press
+          {" "}
+          <strong>X</strong>
+          {" "}
+          to delete a task.
         </p>
       </section>
       <Button
@@ -55,7 +60,7 @@ const About = () => {
         Go back
       </Button>
     </main>
-  )
-}
+  );
+};
 
 export default About;

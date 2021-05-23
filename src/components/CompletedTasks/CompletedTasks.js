@@ -1,49 +1,48 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
-import PropTypes from 'prop-types';
-import { Button, Task } from "../../components";
+import PropTypes from "prop-types";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { Button, Task } from "..";
 import "./CompletedTasks.scss";
 
-const CompletedTasks = (props) => {
+const CompletedTasks = ({ tasks, onComplete, onDelete }) => {
   const [showTasks, setShowTasks] = useState(false);
 
   return (
     <section>
-      <Button type="block" color="blue" onClick={() => {setShowTasks(!showTasks)}} >
+      <Button type="block" color="blue" onClick={() => { setShowTasks(!showTasks); }}>
         <MdKeyboardArrowDown
           className={classNames(
             "open-complete-button",
-            { "open-complete-button--open": showTasks }
+            { "open-complete-button--open": showTasks },
           )}
         />
         Completed&nbsp;&nbsp;
-        { props.tasks.length > 0 && props.tasks.length }
+        { tasks.length > 0 && tasks.length }
       </Button>
       <div className={classNames(
         "completed-tasks",
-        { "completed-tasks--closed": !showTasks }
-      )}>
-        { showTasks && props.tasks.length > 0 &&
-          props.tasks.map((task) => (
+        { "completed-tasks--closed": !showTasks },
+      )}
+      >
+        { showTasks && tasks.length > 0
+          && tasks.map((task) => (
             <Task
               key={task.id}
               task={task}
-              isCompleted={true}
-              onComplete={props.onComplete}
-              onDelete={props.onDelete}
+              isCompleted
+              onComplete={onComplete}
+              onDelete={onDelete}
               onToggle={() => {}}
             />
-          ))
-        }
-        { showTasks && props.tasks.length < 1 &&
-          <p>No completed tasks</p>
-        }
+          ))}
+        { showTasks && tasks.length < 1
+          && <p>No completed tasks</p>}
       </div>
-      
+
     </section>
-  )
-}
+  );
+};
 
 CompletedTasks.propTypes = {
   tasks: PropTypes.array.isRequired,

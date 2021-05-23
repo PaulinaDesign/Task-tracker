@@ -1,24 +1,25 @@
-import PropTypes from 'prop-types';
-import { Task } from "../../components";
+import React from "react";
+import PropTypes from "prop-types";
+import { Task } from "..";
 import "./Tasks.scss";
 
-const Tasks = (props) => {
-  return (
-    <section className="tasks">
-      <h2>Tasks</h2>
-      {props.tasks.map((task) => (
-        <Task
-          key={task.id}
-          task={task}
-          isCompleted={false}
-          onComplete={props.onComplete}
-          onDelete={props.onDelete}
-          onToggle={props.onToggle}
-        />
-      ))}
-    </section>
-  )
-}
+const Tasks = ({
+  tasks, onComplete, onDelete, onToggle,
+}) => (
+  <section className="tasks">
+    <h2>Tasks</h2>
+    {tasks.map((task) => (
+      <Task
+        key={task.id}
+        task={task}
+        isCompleted={false}
+        onComplete={onComplete}
+        onDelete={onDelete}
+        onToggle={onToggle}
+      />
+    ))}
+  </section>
+);
 
 Tasks.propTypes = {
   tasks: PropTypes.array.isRequired,

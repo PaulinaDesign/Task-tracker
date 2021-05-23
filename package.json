@@ -1,5 +1,5 @@
 {
-  "homepage": "https://paulinadesign.github.io/task-tracker",
+  "homepage": "https://track-your-tasks.netlify.app",
   "name": "task-tracker",
   "version": "0.1.0",
   "private": true,
@@ -7,10 +7,11 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
-    "classnames": "^2.2.6",
+    "classnames": "^2.3.1",
     "json-server": "^0.16.3",
     "node-sass": "^4.0.0",
     "normalize-scss": "^7.0.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
@@ -26,7 +27,7 @@
     "eject": "react-scripts eject",
     "server": "json-server --watch db.json --port 3008",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "netlify deploy"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +48,12 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.1.0"
+    "@types/classnames": "^2.3.1",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0"
   }
 }
